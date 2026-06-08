@@ -122,11 +122,15 @@
     .hero {
       background: var(--cream);
       padding: 88px 52px 80px;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .hero-inner {
       display: grid;
-      grid-template-columns: 1fr 400px;
+      grid-template-columns: 1fr 440px;
       gap: 72px;
       align-items: center;
-      border-bottom: 1px solid var(--cream-dark);
+      max-width: 1040px;
+      margin: 0 auto;
     }
 
     .hero-overline {
@@ -821,7 +825,8 @@
       nav { padding: 0 24px; }
       .nav-btn { display: none; }
 
-      .hero { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+      .hero { padding: 64px 24px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
 
       .what-strip { padding: 0 0; }
       .what-inner {
@@ -889,6 +894,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
+  <div class="hero-inner">
   <div>
     <p class="hero-overline">A CPA Group · Verifying AI</p>
     <h1>A wrong AI tax answer<br>can cost you thousands.<br><em>We catch it for $9.80.</em></h1>
@@ -942,6 +948,7 @@
       </div>
     </div>
   </div>
+  </div><!-- end hero-inner -->
 </section>
 
 
