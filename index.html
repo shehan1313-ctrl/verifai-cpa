@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerifAI CPA — AI Tax Answers, Verified by Real CPAs</title>
+  <meta name="description" content="A network of licensed CPAs who verify AI tax answers within 48 hours. Join the waitlist for $19/month." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0F1F3D;
+      --cream:  #FDFBF6;
+      --gold:   #C8A96E;
+      --gold-dark: #9A7A40;
+      --body-dark: rgba(255,255,255,0.58);
+      --body-light: #2A3040;
+      --input-bg: #F7F4ED;
+      --input-border: #DDD8CC;
+      --divider: #EDE8DC;
+    }
+
+    html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--navy); }
+
+    /* ── NAV ── */
+    nav {
+      width: 100%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--gold); }
+
+    .badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 5px 14px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── HERO SPLIT ── */
+    .hero {
+      display: flex;
+      min-height: calc(100vh - 57px);
+    }
+
+    /* LEFT */
+    .panel-left {
+      background: var(--navy);
+      flex: 0 0 55%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 56px 72px 56px;
+    }
+
+    .eyebrow {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 34px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .body-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--body-dark);
+      line-height: 1.75;
+      max-width: 380px;
+      margin-bottom: 56px;
+    }
+
+    /* Social proof */
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatars {
+      display: flex;
+    }
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: #fff;
+      margin-left: -10px;
+      flex-shrink: 0;
+    }
+    .avatars .avatar:first-child { margin-left: 0; }
+    .av1 { background: #1E3A5F; }
+    .av2 { background: #2C4F7C; }
+    .av3 { background: #16304D; }
+    .av4 { background: #243F63; }
+    .av5 { background: #1A3558; }
+
+    .proof-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .proof-text p {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+    .proof-text p strong {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* RIGHT */
+    .panel-right {
+      background: var(--cream);
+      flex: 0 0 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 48px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .card-header {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .price-big {
+      font-family: 'Lora', serif;
+      font-size: 44px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .price-mo {
+      font-size: 13px;
+      color: #888;
+      font-weight: 400;
+    }
+    .price-sub {
+      font-size: 11px;
+      color: #aaa;
+      margin-bottom: 24px;
+    }
+
+    .perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .perks li {
+      font-size: 12.5px;
+      color: var(--body-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.5;
+    }
+    .perks li .icon { flex-shrink: 0; font-size: 14px; }
+
+    .divider {
+      height: 1px;
+      background: var(--divider);
+      margin-bottom: 24px;
+    }
+
+    /* FORM */
+    #waitlist-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #waitlist-form input {
+      width: 100%;
+      padding: 11px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--body-light);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #waitlist-form input::placeholder { color: #b0a99a; }
+    #waitlist-form input:focus { border-color: var(--gold); }
+
+    #waitlist-form button {
+      width: 100%;
+      padding: 13px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: opacity 0.15s;
+      margin-top: 2px;
+    }
+    #waitlist-form button:hover { opacity: 0.88; }
+
+    .fine-print {
+      font-size: 10.5px;
+      color: #bbb;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* THANK YOU */
+    #thank-you {
+      display: none;
+      text-align: center;
+      padding: 28px 0;
+    }
+    .ty-check {
+      font-size: 28px;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .ty-text {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .ty-sub {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--cream);
+      text-align: center;
+      padding: 16px;
+      font-size: 10px;
+      color: #bbb;
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+
+      .hero { flex-direction: column; min-height: auto; }
+
+      .panel-left {
+        flex: none;
+        padding: 48px 24px 40px;
+      }
+
+      h1 { font-size: 28px; }
+      .body-copy { margin-bottom: 36px; }
+
+      .panel-right {
+        flex: none;
+        padding: 40px 24px 48px;
+      }
+
+      footer { background: var(--cream); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Verif<span>AI</span> CPA</div>
+    <div class="badge">✦ Waitlist Open</div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="hero">
+
+    <!-- LEFT -->
+    <div class="panel-left">
+      <p class="eyebrow">A CPA Group · Verifying AI</p>
+      <h1>AI tax answers,<br><em>verified by real CPAs.</em></h1>
+      <p class="body-copy">
+        We're a network of licensed CPAs tired of watching people blindly trust AI tax answers.
+        Paste your AI output — we check it within 48 hours.
+      </p>
+
+      <div class="social-proof">
+        <div class="avatars">
+          <div class="avatar av1">S</div>
+          <div class="avatar av2">M</div>
+          <div class="avatar av3">K</div>
+          <div class="avatar av4">R</div>
+          <div class="avatar av5">J</div>
+        </div>
+        <div class="proof-text">
+          <p><strong>A real CPA group</strong> behind every review.</p>
+          <p>48+ already on the waitlist.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="panel-right">
+      <div class="card">
+        <p class="card-header">Join for $19 / month</p>
+
+        <div class="price-row">
+          <span class="price-big">$19</span>
+          <span class="price-mo">/mo</span>
+        </div>
+        <p class="price-sub">5 verifications · ~$3.80 each</p>
+
+        <ul class="perks">
+          <li><span class="icon">📋</span> 5 AI answer reviews/mo</li>
+          <li><span class="icon">✅</span> Licensed CPA reviews every one</li>
+          <li><span class="icon">⏱</span> 48-hour turnaround by email</li>
+          <li><span class="icon">🎯</span> Right, wrong, or what's missing</li>
+          <li><span class="icon">🌐</span> Individual, crypto, freelance, biz</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <!-- TODO: Replace with your Google Form action URL -->
+        <form
+          id="waitlist-form"
+          action="YOUR_GOOGLE_FORM_ACTION_URL"
+          method="POST"
+          target="hidden_iframe"
+          onsubmit="handleSubmit(event)"
+        >
+          <!-- TODO: Replace entry IDs with your Google Form field entry IDs -->
+          <input type="text"  name="entry.XXXXXXXXX" placeholder="First name" required />
+          <input type="email" name="entry.XXXXXXXXX" placeholder="Email address" required />
+          <button type="submit">Join the Waitlist</button>
+          <p class="fine-print">No credit card &nbsp;·&nbsp; You'll be notified at launch</p>
+        </form>
+
+        <div id="thank-you">
+          <span class="ty-check">✦</span>
+          <p class="ty-text">You're on the list.</p>
+          <p class="ty-sub">We'll be in touch soon.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Hidden iframe so form submit doesn't redirect the page -->
+  <iframe name="hidden_iframe" style="display:none"></iframe>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 VerifAI CPA &nbsp;·&nbsp; Not tax advice &nbsp;·&nbsp; For informational purposes only
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      // Let the form POST to the hidden iframe, then swap UI
+      setTimeout(function () {
+        document.getElementById('waitlist-form').style.display = 'none';
+        document.getElementById('thank-you').style.display = 'block';
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>
