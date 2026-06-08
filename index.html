@@ -147,10 +147,65 @@
 
     .hero-actions {
       display: flex;
-      align-items: center;
-      gap: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
       margin-bottom: 48px;
     }
+
+    .founding-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-founding {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      border-radius: 4px;
+      padding: 15px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-founding:hover { opacity: .87; }
+
+    .founding-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #B85450;
+      font-weight: 500;
+    }
+    .founding-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #B85450;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .waitlist-link {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-dark);
+      padding-bottom: 1px;
+      transition: color .15s;
+      white-space: nowrap;
+    }
+    .waitlist-link:hover { color: var(--ink); }
     .btn-primary {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
@@ -826,8 +881,16 @@
       before you act on them.
     </p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Join the Waitlist</a>
-      <span class="hero-fine">$19/mo · No credit card required</span>
+      <div class="founding-row">
+        <a class="btn-founding" href="https://buy.stripe.com/5kQ9ATblcdC8gzpdeL0co01" target="_blank">
+          Claim Founding Access — $49.99
+        </a>
+        <div class="founding-badge">
+          <div class="founding-badge-dot"></div>
+          Only 5 spots
+        </div>
+      </div>
+      <a class="waitlist-link" href="#waitlist">Join the free waitlist instead →</a>
     </div>
     <div class="hero-proof">
       <div class="avatars">
